@@ -10,7 +10,7 @@
 ![status](https://img.shields.io/badge/tutorial-yellow)
  ![Hits](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
 
-Hashtags: #tutorial #markdown #wasm
+Hashtags: #tutorial #markdown #wasm  
 My projects on GitHub are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
 
 ## Try it
@@ -19,7 +19,7 @@ My projects on GitHub are more like a tutorial than a finished product: [bestia-
 
 ## Markdown
 
-Markdown is great! It is as easy as plain text but renders in a beautiful style that I could never do on my own in some Rich text or HTML.  
+Markdown is great! It is as easy as plain text but renders in a beautiful style that I could never achieve on my own in some Rich text or HTML.  
 The syntax is super easy and it is human readable in both plain text and HTML format. <https://www.markdownguide.org/basic-syntax/>  
 In VSCode and many other editors, I can write Markdown files, and insert images and links. Then there is a Preview panel to watch how it renders.
 
@@ -41,7 +41,7 @@ With some glue files and JavaScript, it is easy to make it work.
 
 For this to work I need a simple Web server that returns files, nothing more. No dynamic web app or anything exotic.  
 It will not work without a Web server on the local disk, because `wasm` files must be fetched from a Web server because of security.  
-Let's start with `index.html`. It will just redirect to the HTML file with the program, adding the first .md file as a parameter.
+Let's start with `index.html`. It will just redirect to the HTML file with JavaScript, adding the first_page.md file as a parameter.
 
 ```HTML
 <script>
@@ -50,8 +50,8 @@ window.location.replace("mdtohtml.html?first_page.md");
 ```
 
 The javascript program is all in the `mdtohtml.html`. There is some simple code to accept a URL parameter.  
-I also replace the links inside the markdown to work with the new indirection.  
-For simplicity I don't bother with subfolders. All .md files are in the same folder.  
+I also regex replace the links inside the markdown to work with the new indirection.  
+For simplicity I don't bother with subfolders. All .md files must be in the same folder.  
 And then we call the `markdown.parse()` method from the wasm module.  
 <https://github.com/rsms/markdown-wasm>  
 Sure we have to add some beautiful CSS that is similar to GitHub markdown.  

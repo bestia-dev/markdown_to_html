@@ -50,7 +50,7 @@ window.location.replace("mdtohtml.html?first_page.md");
 ```
 
 The javascript program is all in the `mdtohtml.html`. There is some simple code to accept a URL parameter.  
-I also regex replace the links inside the markdown to work with the new indirection.  
+I also regex replaced the links inside the markdown to work with the new indirection.  
 For simplicity I don't bother with subfolders. All .md files must be in the same folder.  
 And then we call the `markdown.parse()` method from the wasm module.  
 <https://github.com/rsms/markdown-wasm>  

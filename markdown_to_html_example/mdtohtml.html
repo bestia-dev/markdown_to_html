@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <!--html+javascript+wasm renders markdown client-side with github css-->
+    <!--html and markdown files must have the same name-->
+    <!--https://github.com/rsms/markdown-wasm-->
+    <!--https://github.com/sindresorhus/github-markdown-css-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="github-markdown.css">
+    <script src="markdown.js"></script>
+    <script>
+        /// Read the parameters from url.
+        /// Fetch the file md with that name.  
+        /// Regex replace links to md with links to mdtohtml.html?x.md.  
+        /// This simplified version works only when all the md files are in the same folders or with absolute paths.  
+        /// My projects on GitHub are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
+        /// It will not work with relative paths to md files.  
+        /// Convert it to html and write to the screen.  
+        async function fetch_md_convert_to_html() {
+            // get the ? parameters
+            let params = window.location.search;
+            // if no parameters then use the default
+            if (params==''){
+                params = "?first_page.md";
+                window.location.search=params;
+            }
+            // this return the parameters including the params. I need to trim it.
+            let mdFile = params.substring(1);
+
+            const response = await fetch(mdFile);
+            let mdText = await response.text();
+            // regex replace
+            mdText = mdText.replaceAll(/(\[.*\]\()(.*\.md\))/g, '$1mdtohtml.html?$2');
+            
+            document.body.innerHTML=markdown.parse(mdText);
+        }
+    </script>
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="markdown-body">
+    <script>
+        fetch_md_convert_to_html();
+    </script>
+</body>
+</html> 

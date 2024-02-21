@@ -7,8 +7,8 @@
 
 [//]: # (auto_cargo_toml_to_md end)
 
-![status](https://img.shields.io/badge/tutorial-yellow)
- ![Hits](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
+ ![status](https://img.shields.io/badge/tutorial-yellow)
+ ![markdown_to_html](https://bestia.dev/webpage_hit_counter/get_svg_image/1114903337.svg)
 
 Hashtags: #tutorial #markdown #wasm  
 My projects on GitHub are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
@@ -25,7 +25,6 @@ In VSCode and many other editors, I can write Markdown files, and insert images 
 
 Usually, the markdown syntax is rendered to HTML. Many libraries do that.  
 I chose <https://github.com/rsms/markdown-wasm> because it can be used inside a browser on the client side.  
-
 
 ## Publish to Web
 

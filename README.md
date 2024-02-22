@@ -105,7 +105,7 @@ We need to add the magic ingredients to the folder: `markdown.js`, `markdown.was
 
 and voila! It works.
 
-## open-source and free as a beer
+## Open-source and free as a beer
 
 My open-source projects are free as a beer (MIT license).  
 I just love programming.  
